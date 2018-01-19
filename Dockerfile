@@ -1,13 +1,10 @@
-FROM ubuntu:16.04
+FROM ubuntu:17.10
 MAINTAINER notogawa <n.ohkawa@gmail.com>
 
 env DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update \
  && apt-get upgrade -y \
- && apt-get install -y --no-install-recommends software-properties-common \
- && add-apt-repository ppa:jonathonf/texlive-2016 \
- && apt-get update \
  && apt-get install -y --no-install-recommends curl=7.* ca-certificates=* \
  && apt-get install -y --no-install-recommends texlive-luatex texlive-lang-japanese lmodern texlive-xetex \
  && apt-get clean && rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
